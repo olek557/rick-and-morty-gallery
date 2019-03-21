@@ -3,3 +3,35 @@ body {
   font-family: sans-serif;
   // background: red;
 }
+
+.character-list {
+  display: flex;
+  border: 1px solid grey;
+}
+
+.character {
+  width: 30%;
+  height: 50px;
+  border: 1px solid red;
+  display: flex;
+  justify-content: center;
+}
+
+.character__image {
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.character__name {
+  font-size: 21px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.character__status {
+  font-size: 14px;
+  color: lightgrey;
+  text-align: left;
+}
