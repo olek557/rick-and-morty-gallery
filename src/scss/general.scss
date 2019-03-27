@@ -6,27 +6,35 @@ body {
 
 .character-list {
   display: flex;
-  border: 1px solid grey;
+  flex-direction: column;
+  // border: 1px solid grey;
+  max-width: 300px;
+  margin: 0 auto;
 }
 
 .character {
-  width: 30%;
-  height: 50px;
   border: 1px solid red;
-  display: flex;
+  padding: 10px;
   justify-content: center;
+  & + & {
+    margin-top: 15px;
+  }
 }
 
 .character__image {
   border-radius: 50%;
   overflow: hidden;
-  margin-bottom: 10px;
+  width: 100px;
+  height: 100px;
+  display: block;
+  margin: 0 auto;
 }
 
 .character__name {
   font-size: 21px;
   font-weight: bold;
   text-align: center;
+  margin-top: 10px;
   margin-bottom: 10px;
 }
 
