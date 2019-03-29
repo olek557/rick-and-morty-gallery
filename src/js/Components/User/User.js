@@ -10,7 +10,9 @@ export default class User extends Component {
 
     }
     getProperData() {
-        getData().then((userResp) => {
+        let usetId = this.props.id;
+        console.log(usetId);
+        getData(usetId).then((userResp) => {
             const user = userResp.name;
             // console.log(user.name)
             this.updateState({userName: user});
