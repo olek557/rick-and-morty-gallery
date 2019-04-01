@@ -13,9 +13,9 @@ export default class User extends Component {
         let usetId = this.props.id;
         console.log(usetId);
         getData(usetId).then((userResp) => {
-            const user = userResp.name;
-            // console.log(user.name)
-            this.updateState({userName: user});
+            const user = userResp;
+            console.log(userResp)
+            this.updateState({user: user});
             this.render();
             // return user;
         });
@@ -25,10 +25,19 @@ export default class User extends Component {
             return 'Loading....' 
         } else {
             return [
-                {
-                    tag: 'p',
-                    content: `this is children is ${this.state.userName}`
-                }
+                `
+            <div class="card">
+                <div class="card__img">
+                    <img src="${this.state.user.image}" alt="">
+                </div>
+                <div class="card__info">
+                    <div class="card__info-row row">
+                        <div class="cell cell--title">Name</div>
+                        <div class="cell">${this.state.user.name}</div>
+                    </div>
+                </div>
+            </div>
+                `
             ]
         }
     }

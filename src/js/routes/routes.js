@@ -7,7 +7,7 @@ import {User} from '../Components/User';
 export const routes = [
     {
         path: '',
-        component: Main
+        component: Users
     },
     {
         path: 'test',
