@@ -26,17 +26,17 @@ export default class User extends Component {
         } else {
             return [
                 `
-            <div class="card">
-                <div class="card__img">
-                    <img src="${this.state.user.image}" alt="">
-                </div>
-                <div class="card__info">
-                    <div class="card__info-row row">
-                        <div class="cell cell--title">Name</div>
-                        <div class="cell">${this.state.user.name}</div>
+                    <div class="card">
+                        <div class="card__img">
+                            <img src="${this.state.user.image}" alt="">
+                        </div>
+                        <div class="card__info">
+                            <div class="card__info-row row">
+                                <div class="cell cell--title">Name</div>
+                                <div class="cell">${this.state.user.name}</div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
                 `
             ]
         }

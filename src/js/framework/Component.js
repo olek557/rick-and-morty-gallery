@@ -3,14 +3,19 @@ export default class Component {
         this.host = host;
         this.props = props;
         this.init();
-        this._render();
+        this._render()
     }
+
+
     init() {
+        console.log(this.constructor.name, "component rendered")
     }
+
     updateState(stateDelta) {
         this.state = Object.assign({}, this.state, stateDelta);
         this._render();
     }
+
     _render() {
         this.host.innerHTML = "";
         let content = this.render();
@@ -18,8 +23,6 @@ export default class Component {
         if (!Array.isArray(content)) {
             content = [content];
         }
-
-        // console.log(content);
 
         content.map(item => this._vDomPrototypeElementToHtmlElement(item)) // [string|HTMLElement] => [HTMLElement]
             .forEach(htmlElement => {
@@ -41,8 +44,8 @@ export default class Component {
             let container;
             const containsHtmlTags = /[<>&]/.test(element);
             if (containsHtmlTags) {
-                container = document.createElement('div');
-                container.innerHTML = element;
+                container = this.helperForCreateElementFromHTML(element);
+                console.log(container)
             } else {
                 container = document.createTextNode(element);
             }
@@ -51,10 +54,10 @@ export default class Component {
             if (element.tag) {
                 if (typeof element.tag === 'function') {
 
-                    const container = document.createElement('div');
+                    const container = document.createElement('span');
                     new element.tag(container, element.props);
 
-                    return container;
+                    return container.firstChild;
                 } else {
                     // string
                     const container = document.createElement(element.tag);
@@ -97,5 +100,10 @@ export default class Component {
             }
             return element;
         }
+    }
+    helperForCreateElementFromHTML(htmlString) {
+        const div = document.createElement('p');
+        div.innerHTML = htmlString.trim();
+        return div.firstChild;
     }
 }

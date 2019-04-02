@@ -33,7 +33,6 @@ export default class Users extends Component {
     }
 
     render() {
-        console.log(this.state)
         if(!this.state) {
             return {
                 tag: 'p',

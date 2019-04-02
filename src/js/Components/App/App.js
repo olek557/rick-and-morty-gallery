@@ -12,6 +12,7 @@ export default class App extends Component {
                 tag: 'div',
                 content: 'App'
             },
+            `<h1>Hi there</h1>`,
             this.props.routerOutlet
         ];
     }

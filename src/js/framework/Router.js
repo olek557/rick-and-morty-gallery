@@ -3,6 +3,7 @@ export default class Router {
         this.host = host;
         this.routes = routes;
         this.routerOutlet = document.createElement('div');
+        this.routerOutlet.classList = "router-wrapper"
         this.notFound = this.routes.find(route => {
             return route.path === '**'
         });
