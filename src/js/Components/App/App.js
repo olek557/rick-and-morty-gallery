@@ -6,13 +6,7 @@ export default class App extends Component {
     }
 
     render() {
-        // console.log(this.props);
         return [
-            {
-                tag: 'div',
-                content: 'App'
-            },
-            `<h1>Hi there</h1>`,
             this.props.routerOutlet
         ];
     }

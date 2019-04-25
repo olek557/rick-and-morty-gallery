@@ -68,7 +68,10 @@ body {
   }
 }
 .card__info {
-  padding: 70px 10px 20px;
+  padding: 20px;
+  .card__img + & {
+    padding: 70px 20px 20px;
+  }
 }
 .row {
   display: flex;

@@ -1,5 +1,5 @@
 import Component from "../../framework/Component";
-import {getData} from "../../api/api";
+import { getData } from "../../api/api";
 
 export default class Users extends Component {
 
@@ -11,35 +11,48 @@ export default class Users extends Component {
 
     getAllCharacters() {
         getData().then(characters => {
-            const charactersList = this.generateCharactersList(characters.results);
-            this.updateState({charactersList: charactersList});
+            this.updateState({ charactersList: characters.results });
         });
     }
 
-    generateCharactersList(characters) {
-        const listHtml = document.createElement('ul');
-        const charactersHtmlList = characters.map(character => {
-            const characterHtml = document.createElement('li');
-            const characterLink = document.createElement('a');
-            characterLink.setAttribute('href', './user/' + character.id);
-            characterLink.innerHTML = character.name;
-            characterHtml.append(characterLink);
-            return characterHtml;
-        })
-        console.log('charactersHtmlList', charactersHtmlList);
-
-        listHtml.append(...charactersHtmlList);
-        return listHtml;
-    }
-
     render() {
-        if(!this.state) {
+        if (!this.state) {
             return {
-                tag: 'p',
-                content: 'loading'
+                tag: 'div',
+                classList: 'card',
+                children: [
+                    {
+                        tag: 'div',
+                        classList: 'card__info',
+                        children: [
+                            {
+                                tag: 'p',
+                                content: 'loading'
+                            }
+                        ]
+                    }
+                ]
             }
         } else {
-            return this.state.charactersList;
+            return {
+                tag: 'div',
+                classList: 'card',
+                children: [
+                    {
+                        tag: 'div',
+                        classList: 'card__info',
+                        children: [
+                            ...this.state.charactersList.map(character => {
+                                return `
+                                    <div class="row">
+                                        <a href='./user/${character.id}' class="link">${character.name}</a>
+                                    <div>
+                                `;
+                            })
+                        ],
+                    }
+                ],
+            }
         }
     }
 }

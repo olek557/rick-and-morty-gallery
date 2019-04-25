@@ -10,14 +10,12 @@ const fetchCharacters = fetch(api)
     }
     throw new Error(resp.status)
   })
-  .then(({results}) => {
+  .then(({ results }) => {
     return results;
   });
 
 
 const makeCharacter = (character) => {
-  
-  // console.log(character)
   const element = document.createElement('a');
   element.setAttribute('href', './character.html')
   element.classList.add('character')
@@ -27,19 +25,6 @@ const makeCharacter = (character) => {
   `
   return element
 }
-
-// const makeCharacterList = (characters) => {
-  
-//   const list = document.createElement('div');
-//   list.classList.add('character-list')
-  
-//   const domElemets = characters.map(character => {
-//     return makeCharacter(character)
-//   });
-//   list.append(...domElemets);
-//   console.log(list);
-//   return list
-// }
 
 
 const drawCharacter = (character) => {

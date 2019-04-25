@@ -13,10 +13,6 @@ export const routes = [
         component: NotFound
     },
     {
-        path: 'users',
-        component: Users
-    },
-    {
         path: 'user/:id',
         component: User
     }

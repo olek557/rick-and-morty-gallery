@@ -22,7 +22,22 @@ export default class User extends Component {
     }
     render() {
         if (!this.state) {
-            return 'Loading....' 
+            return {
+                tag: 'div',
+                classList: 'card',
+                children: [
+                    {
+                        tag: 'div',
+                        classList: 'card__info',
+                        children: [
+                            {
+                                tag: 'p',
+                                content: 'loading'
+                            }
+                        ]
+                    }
+                ]
+            }
         } else {
             return [
                 `
